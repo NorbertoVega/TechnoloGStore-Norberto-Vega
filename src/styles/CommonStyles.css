@@ -1,0 +1,10 @@
+
+.centrar {
+    text-align: center;
+    padding-top: 50px;
+    transition: all 0.3s ease 0s;
+}
+
+.centrar:hover {
+    color:#0099a9;
+}

@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Roboto:wght@300&display=swap');
+
+li, a, button, .title {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 16px  !important;
+  color: #edf0f1 !important;
+  text-decoration: none !important;
+}
+
+.title {
+  transition: all 0.3s ease 0s;
+  margin-top: 0;
+}
+.title:hover {
+  color:#0099a9 !important;
+}
+
+.header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 2%;
+}
+
+.logo {
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+}
+
+.logo-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+  color:#0099a9 !important;
+}
+
+button {
+  padding: 9px 25px;
+  background-color: rgba(0,136,169,1);
+  border: none !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: rgba(0,136,169,0.8);
+  color:#0099a9;
+}

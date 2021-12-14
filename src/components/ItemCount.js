@@ -13,6 +13,9 @@ function ItemCount({ initialValue = 0, stock = 0 }) {
     const [error, setError] = useState(false);
 
     const onAdd = () => {
+        if (stock === 0)
+            setError(true);
+            
         if (quantity < stock)
             setQuantity((prev) => prev + 1);
     }
@@ -42,7 +45,7 @@ function ItemCount({ initialValue = 0, stock = 0 }) {
                 <Toast.Body className="centrar-toast">Agregado al carrito!</Toast.Body>
             </Toast>
             <Toast onClose={() => setError(false)} show={error} delay={2000} autohide>
-                <Toast.Body className="centrar-toast">No se pudo agregar al carrito.<br></br> No hay Stock.</Toast.Body>
+                <Toast.Body className="centrar-toast">No hay Stock.</Toast.Body>
             </Toast>
         </div>
     )

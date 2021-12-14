@@ -1,4 +1,3 @@
-
 .counter-container {
     display: inline-block;
     display: flex;
@@ -40,7 +39,6 @@
 .circle-control-button:hover {
     background-color:#0099a9;
 }
-
 
 .centrar-toast {
     text-align: center;

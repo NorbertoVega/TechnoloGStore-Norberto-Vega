@@ -9,7 +9,7 @@ function ItemListContainer(props) {
         <>
             <Container>
                     <Row md={12}>
-                        <Common.Mensaje text={props.greeting} centrar={"centrar mensaje-pd"} />
+                        <Common.Mensaje text={props.greeting} centrar={"centrar mensaje-mg"} />
                         <ItemCount stock={5} initialValue={1}/>
                         <ItemCount stock={6} initialValue={3}/>
                         <ItemCount stock={0} initialValue={1}/>

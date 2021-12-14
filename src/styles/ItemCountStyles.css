@@ -1,0 +1,47 @@
+
+.counter-container {
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 500px;
+    background-color: #282c34;
+    margin: 8px;
+}
+
+.control-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 130px;
+    height: 150px;
+    color: white;
+}
+
+.circle-control-button {
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,136,169,1);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+    transition: all 0.3s ease 0s;   
+}
+
+.circle-control-button:hover {
+    background-color:#0099a9;
+}
+
+
+.centrar-toast {
+    text-align: center;
+}

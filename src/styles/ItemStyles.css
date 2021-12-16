@@ -1,0 +1,33 @@
+
+.item-container {
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 550px;
+    background-color: #282c34;
+    padding: 8px;
+    margin: 8px;
+    color: white;
+    border-radius: 20px;
+    padding: 16px;
+}
+
+.item-image {
+    width: 95%;
+    height: 55%;
+    border-radius: 5px;
+}
+
+.item-title {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.item-precio {
+    font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}

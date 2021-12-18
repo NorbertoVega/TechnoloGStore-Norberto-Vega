@@ -1,4 +1,3 @@
-import ItemCount from "./ItemCount";
 import "../styles/ItemStyles.css";
 
 function Item(props) {

@@ -45,7 +45,7 @@ function ItemList() {
     return (
         <Row md={12}>
             {productsArray.map((value) => {
-                return <Item key={value.id} title={value.title} price={value.price} pictureUrl={value.pictureUrl} stock={value.stock} initialValue={value.initialValue} />
+                return <Item key={value.id} title={value.title} price={value.price} pictureUrl={value.pictureUrl} />
             })}
         </Row>
     )

@@ -8,7 +8,6 @@ function Item(props) {
                 <p className="item-title">{props.title}</p>
                 <img src={props.pictureUrl} className="item-image" alt="Imagen de producto" />
                 <p className="item-precio">Precio: ${props.price}</p>
-                <ItemCount stock={props.stock} initialValue={props.initialValue}/>
             </div>
         </>
     )

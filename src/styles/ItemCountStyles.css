@@ -1,12 +1,11 @@
 .counter-container {
-    display: inline-block;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
     background-color: #282c34;
-    margin: 8px;
+    margin: 16px 0 0px 0;
+    width: 180px;
 }
 
 .control-container {
@@ -14,8 +13,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 130px;
-    margin-bottom: 16px;
+    width: 150px;
+    margin-bottom: 25px;
     color: white;
 }
 

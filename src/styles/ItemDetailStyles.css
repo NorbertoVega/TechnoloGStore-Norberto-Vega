@@ -1,0 +1,38 @@
+.item-detail-container {   
+    background-color: #282c34;
+    border-radius: 15px;
+    color: white;
+    margin-top: 32px;
+    padding: 32px;
+    display: flex;
+}
+
+.detail-image {
+    width: 600px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.detail-title {
+    font-size: 30px;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 20px 0px 20px;
+}
+
+.detail-price {
+    margin-top: 32px;
+    font-size: 23px;
+}
+
+.detail-stock {
+    font-size: small;
+}
+
+.detail-description {
+    max-width: 500px;
+}

@@ -11,7 +11,6 @@ function Nav() {
         <nav>
             <ul className="nav_links">
                 <a href="#home"><button>Home</button></a>
-                <li><Common.Enlace text="Home" clase={"nav_links"} hrefProp="#home"/></li>
                 <li><Common.Enlace text="Productos" clase={"nav_links"} hrefProp="#productos"/></li>
                 <li><Common.Enlace text="Promociones" clase={"nav_links"} hrefProp="#promociones"/></li>
                 <li><Common.Enlace text="Arma tu PC" clase={"nav_links"} hrefProp="#armatupc"/></li>

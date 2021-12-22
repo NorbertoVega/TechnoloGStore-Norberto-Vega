@@ -3,7 +3,7 @@ import Image from "react-bootstrap/Image";
 import "../styles/ItemCountStyles.css";
 import plus from "../img/plus-icon.png";
 import minus from "../img/minus-icon.png";
-import Toast  from "react-bootstrap/Toast";
+import Toast from "react-bootstrap/Toast";
 
 
 function ItemCount({ initialValue = 0, stock = 0 }) {
@@ -15,7 +15,7 @@ function ItemCount({ initialValue = 0, stock = 0 }) {
     const onAdd = () => {
         if (stock === 0)
             setError(true);
-            
+
         if (quantity < stock)
             setQuantity((prev) => prev + 1);
     }
@@ -40,7 +40,7 @@ function ItemCount({ initialValue = 0, stock = 0 }) {
                 <div onClick={onDecrease} className="circle-control-button size"><Image src={minus} className="size" /></div>
             </div>
             <button onClick={showMessage}>Agregar al carrito</button>
-            
+
             <Toast onClose={() => setShow(false)} show={show} delay={2000} autohide>
                 <Toast.Body className="centrar-toast">Agregado al carrito!</Toast.Body>
             </Toast>

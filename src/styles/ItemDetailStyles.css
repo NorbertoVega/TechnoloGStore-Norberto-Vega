@@ -1,10 +1,15 @@
 .item-detail-container {   
-    background-color: #282c34;
-    border-radius: 15px;
-    color: white;
+    background-color: white;
+    color: black;
     margin-top: 32px;
     padding: 32px;
     display: flex;
+    border: black solid 0.5px;
+    transition: all 0.3s ease 0s;
+}
+
+.item-detail-container:hover {
+    transform: scale(1.004); 
 }
 
 .detail-image {

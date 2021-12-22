@@ -1,33 +1,34 @@
-
 .item-container {
     display: inline-block;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 400px;
-    height: 550px;
-    background-color: #282c34;
-    padding: 8px;
-    margin: 8px;
-    color: white;
-    border-radius: 20px;
-    padding: 16px;
+    width: 300px;
+    height: 350px;
+    margin: 12px;
+    color: black !important;
+    border:darkgray solid 0.5px;
+    transition: all 0.3s ease 0s;
+}
+
+.item-container:hover {
+    transform: scale(1.015); 
 }
 
 .item-image {
-    width: 95%;
-    height: 55%;
-    border-radius: 5px;
+    width: 85%;
+    height: 56%;
+    border-bottom: darkgray solid 0.5px;
 }
 
 .item-title {
-    font-size: 23px;
+    font-size: 19px;
     margin-bottom: 8px;
 }
 
 .item-precio {
-    font-size: 20px;
+    font-size: 14px;
     margin-top: 12px;
     margin-bottom: 8px;
 }

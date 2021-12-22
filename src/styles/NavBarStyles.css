@@ -3,42 +3,49 @@
 li, a, button, .title {
   font-family: 'Roboto', sans-serif !important;
   font-size: 16px  !important;
-  color: #edf0f1 !important;
+  color: black !important;
   text-decoration: none !important;
 }
 
 .title {
   transition: all 0.3s ease 0s;
-  margin-top: 0;
-}
-.title:hover {
-  color:#0099a9 !important;
+  margin-bottom: 0 !important;
+  margin-left: 16px;
+  font-size: 18px !important;
+  transition: all 0.3s ease 0s;
 }
 
-.header {
-  background-color: #282c34;
+.title:hover {
+  color: darkgray !important;
+  transform: scale(1.03); 
+}
+
+.navbar-container {
+  background-color: rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 2%;
+  padding: 5px 2%;
+  border-bottom: black solid 0.5px;
 }
 
 .logo {
   cursor: pointer;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
 }
 
 .logo-name-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
 .nav_links {
   list-style: none;
+  margin-bottom: 0 !important;
 }
 
 .nav_links li {
@@ -46,24 +53,25 @@ li, a, button, .title {
   padding: 0px 20px;
 }
 
-.nav_links li a {
+.nav_links li button {
   transition: all 0.3s ease 0s;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.nav_links li a:hover {
-  color:#0099a9 !important;
+.nav_links li button:hover {
+  color: darkgray !important;
+  border: none;
 }
 
 button {
   padding: 9px 25px;
-  background-color: rgba(0,136,169,1);
-  border: none !important;
-  border-radius: 50px !important;
+  background-color: lightgray;
+  border: none;
+  border-radius: 10px;
   cursor: pointer !important;
   transition: all 0.3s ease 0s;
 }
 
 button:hover {
-  background-color: rgba(0,136,169,0.8);
-  color:#0099a9;
+  background-color: darkgray;
 }

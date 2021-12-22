@@ -1,28 +1,15 @@
-import React, { useState, useEffect } from 'react';
 import Item from "./Item";
 import Row from "react-bootstrap/Row";
-import productsMock from "../mockData.js";
+import { NavLink } from 'react-router-dom';
 
-function ItemList() {
-
-    const [productsArray, setProductsArray] = useState([])
-
-    useEffect(() => {
-
-        const asynncMock = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(productsMock());
-            }, 2000);
-        })
-
-        asynncMock.then((res) => setProductsArray(res));
-
-    }, [])
+function ItemList({productArray}) {
 
     return (
         <Row md={12}>
-            {productsArray.map((value) => {
-                return <Item key={value.id} title={value.title} price={value.price} pictureUrl={value.pictureUrl} />
+            {productArray.map((value) => {
+                return  <NavLink to={`/item/${value.id}`} className="item-container" key={value.id}>
+                            <Item title={value.title} price={value.price} pictureUrl={value.pictureUrl} />
+                        </NavLink>
             })}
         </Row>
     )

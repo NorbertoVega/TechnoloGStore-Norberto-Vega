@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #282c34;
     margin: 16px 0 0px 0;
     width: 180px;
 }
@@ -15,7 +14,7 @@
     align-items: center;
     width: 150px;
     margin-bottom: 25px;
-    color: white;
+    color: black;
 }
 
 .circle-control-button {
@@ -24,7 +23,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: rgba(0,136,169,1);
+    background: lightgray;
     border-radius: 50%;
     width: 36px;
     height: 36px;
@@ -35,7 +34,7 @@
 }
 
 .circle-control-button:hover {
-    background-color:#0099a9;
+    background-color: darkgray;
 }
 
 .centrar-toast {

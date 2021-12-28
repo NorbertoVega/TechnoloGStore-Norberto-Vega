@@ -101,7 +101,7 @@ const productsMock = () => [
     {
         id: 12, category: "motherboards", title: "Motherboard Gigabyte Ga-a320m-h", price: "7.297",
         pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_2X_940015-MLA45077500225_032021-F.webp",
-        stock: 10, initialValue: 1, description: `Innovadores en diseño y tecnología, Logitech se encarga de brindar la mejor experiencia de uso para sus usuarios. Sus teclados resaltan por ser resistentes y muy de buena calidad, por lo que podrás disfrutarlos por un largo tiempo.`
+        stock: 10, initialValue: 3, description: `Innovadores en diseño y tecnología, Logitech se encarga de brindar la mejor experiencia de uso para sus usuarios. Sus teclados resaltan por ser resistentes y muy de buena calidad, por lo que podrás disfrutarlos por un largo tiempo.`
     },
     {
         id: 13, category: "motherboards", title: "Motherboard Asus A320m-k", price: "13.799",

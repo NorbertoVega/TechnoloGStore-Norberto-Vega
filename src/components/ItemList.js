@@ -2,7 +2,7 @@ import Item from "./Item";
 import Row from "react-bootstrap/Row";
 import { NavLink } from 'react-router-dom';
 
-function ItemList({productArray}) {
+function ItemList({ productArray }) {
 
     return (
         <Row md={12}>

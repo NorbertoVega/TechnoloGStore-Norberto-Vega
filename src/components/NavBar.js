@@ -5,8 +5,6 @@ import "../styles/NavBarStyles.css";
 import Common from "./Common";
 import { NavLink } from "react-router-dom";
 
-let cantidad = 4;
-
 function Nav() {
     return (
         <nav>
@@ -37,7 +35,7 @@ function NavBar() {
         <div className="navbar-container">
             <LogoAndName />
             <Nav />
-            <CartWidget cantidad={cantidad} />
+            <CartWidget/>
         </div>
     )
 }

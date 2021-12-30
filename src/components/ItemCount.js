@@ -3,14 +3,12 @@ import Image from "react-bootstrap/Image";
 import "../styles/ItemCountStyles.css";
 import plus from "../img/plus-icon.png";
 import minus from "../img/minus-icon.png";
-import { NavLink } from "react-router-dom";
 
 
-function ItemCount({currentQuantity, addQuantity, decreaseQuantity, addTocart}) {
+function ItemCount({currentQuantity}) {
 
-    const onAddHandler = () => addQuantity(currentQuantity);
-    const onDecreaseHandler = () => decreaseQuantity(currentQuantity);
-    const addToCartHandler = () => addTocart();
+    const onAddHandler = () => window.dispatchEvent(new CustomEvent("addQuantity"));
+    const onDecreaseHandler = () => window.dispatchEvent(new CustomEvent("decreaseQuantity"));
 
     return (
         <div className="counter-container">
@@ -18,9 +16,7 @@ function ItemCount({currentQuantity, addQuantity, decreaseQuantity, addTocart}) 
                 <div onClick={onAddHandler} className="circle-control-button size"><Image src={plus} className="size" /></div>
                 <span>{currentQuantity}</span>
                 <div onClick={onDecreaseHandler} className="circle-control-button size"><Image src={minus} className="size" /></div>
-            </div>
-            <button onClick={addToCartHandler}>Agregar al carrito</button>
-            <NavLink to={"/cart"}><button onClick={addToCartHandler} className="finalizar-button">Finalizar Compra</button></NavLink>
+            </div>          
         </div>
     )
 }

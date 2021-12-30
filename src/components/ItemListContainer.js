@@ -5,10 +5,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import productsMock from "../mockData.js";
 import Header from "./Header";
+import Spinner from "./Spinner";
 
 function ItemListContainer() {
 
-    const [productsArray, setProductsArray] = useState([])
+    const [productsArray, setProductsArray] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const { categoryName } = useParams();
 
     useEffect(() => {
@@ -23,11 +25,12 @@ function ItemListContainer() {
         const asynncMock = new Promise((resolve) => {
             setTimeout(() => {
                 resolve(filterProductsByCategory());
-            }, 2000);
+                setIsLoading(false);
+            }, 1000);
         })
 
         asynncMock.then((res) => setProductsArray(res));
-
+        
     }, [categoryName]);
 
 
@@ -37,7 +40,7 @@ function ItemListContainer() {
         <>
             <Header title={showCategoryName()} />
             <Container className="mb-5">
-                <ItemList productArray={productsArray} />
+                {isLoading? <Spinner/> : <ItemList productArray={productsArray} />}    
             </Container>
         </>
     )

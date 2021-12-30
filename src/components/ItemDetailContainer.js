@@ -5,10 +5,13 @@ import Container from "react-bootstrap/Container";
 import productsMock from "../mockData.js";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
+import Spinner from "./Spinner";
+
 
 function ItemDetailContainer() {
 
     const [item, setItem] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
 
     useEffect(() => {
@@ -17,7 +20,8 @@ function ItemDetailContainer() {
             setTimeout(() => {
                 let filtered = productsMock().filter(prod => prod.id === Number(id));
                 resolve(filtered);
-            }, 2000);
+                setIsLoading(false);
+            }, 1000);
         })
 
         getItem.then((res) => setItem(res[0]));
@@ -29,7 +33,7 @@ function ItemDetailContainer() {
             <Header title={item.title} />
             <Container>
                 <Row md={12}>
-                    <ItemDetail item={item} />
+                   {isLoading? <Spinner/> : <ItemDetail item={item} />}
                 </Row>
             </Container>
         </>

@@ -41,3 +41,19 @@
 .detail-description {
     max-width: 500px;
 }
+
+.centrar-toast {
+    text-align: center;
+    color: black;
+}
+
+.centrar-toasts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.agregar-button, .ir-carrito-button {
+    width: 180px;
+    margin-bottom: 10px;
+}

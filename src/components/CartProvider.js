@@ -17,20 +17,30 @@ function CartProvider({ children }) {
         }
         window.dispatchEvent(new CustomEvent("quantityChanged"));
     }
-
+    
     function removeItem(itemId) {
         if (isInCart(itemId)) {
             const position = getPositionAtCart(itemId);
             quantityCartWidget -= cartProducts[position].quantity;
             cartProducts.splice(position, 1);
+            window.dispatchEvent(new CustomEvent("quantityChanged"));
         }
     }
-
+    
     function clear() {
         cartProducts = [];
         quantityCartWidget = 0;
-        window.dispatchEvent(new CustomEvent("cartHasChanged"));
         window.dispatchEvent(new CustomEvent("quantityChanged"));
+    }
+    
+    function updateQuantity(itemId, newQuantity) {
+        if (isInCart(itemId)) {
+            const position = getPositionAtCart(itemId);
+            quantityCartWidget -= cartProducts[position].quantity;
+            quantityCartWidget += newQuantity;
+            cartProducts[position].quantity = newQuantity;
+            window.dispatchEvent(new CustomEvent("quantityChanged"));
+        }
     }
 
     function isInCart(id) {
@@ -50,8 +60,18 @@ function CartProvider({ children }) {
         return quantityCartWidget;
     }
 
+    function getTotal() {
+        let total = 0;
+        if (cartProducts !== null && cartProducts !== undefined) {
+            cartProducts.forEach((prod) => {
+                total += prod.price * prod.quantity;
+            });
+        }
+        return total;
+    }
+
     return (
-        <CartContext.Provider value={{ addItem, removeItem, clear, isInCart, getCartProducts, getQuantityCartWidget }}>
+        <CartContext.Provider value={{ addItem, removeItem, clear, isInCart, getCartProducts, getQuantityCartWidget, updateQuantity, getTotal }}>
             {children}
         </CartContext.Provider>
     )

@@ -18,10 +18,14 @@ function CartWidget() {
 
     return (
         <NavLink to={"/cart"}>
-            <div className="circle">
-                <Image src={cart} className="size" />
-                <p>{quantity}</p>
-            </div>
+            {   
+                quantity !== 0 && 
+                
+                <div className="circle">
+                    <Image src={cart} className="size" />
+                    <p>{quantity}</p>
+                </div>
+            }
         </NavLink>
     )
 }

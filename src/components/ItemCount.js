@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "react-bootstrap/Image";
 import "../styles/ItemCountStyles.css";
 import plus from "../img/plus-icon.png";
@@ -6,7 +6,7 @@ import minus from "../img/minus-icon.png";
 import Toast from "react-bootstrap/Toast";
 
 
-function ItemCount({ initialValue, stock, onAdd }) {
+function ItemCount({ initialValue, stock, onAdd, buttonLabel, id = -1}) {
 
     const [currentQuantity, setCurrentQuantity] = useState(initialValue);
     const [error, setError] = useState(false)
@@ -21,14 +21,10 @@ function ItemCount({ initialValue, stock, onAdd }) {
 
     const addHandler = () => {
         if (currentQuantity <= stock)
-            onAdd(currentQuantity);
+            onAdd(currentQuantity, id);
         else
             setError(true);
     }
-
-    useEffect(() => {
-
-    }, [currentQuantity])
 
     return (
         <>
@@ -38,13 +34,12 @@ function ItemCount({ initialValue, stock, onAdd }) {
                     <span>{currentQuantity}</span>
                     <div onClick={onDecrease} className="circle-control-button size"><Image src={minus} className="size" /></div>
                 </div>
-                <button onClick={addHandler} className="agregar-button">Agregar al carrito</button>
+                <button onClick={addHandler} className="agregar-button">{buttonLabel}</button>
             </div>
             <Toast onClose={() => setError(false)} show={error} delay={2000} autohide>
                 <Toast.Body className="centrar-toast">No hay Stock.</Toast.Body>
             </Toast>
         </>
-
     )
 }
 

@@ -10,17 +10,12 @@ function ItemDetail({ item }) {
 
     const cartContext = useContext(CartContext);
     const [show, setShow] = useState(false);
-    const [cartItems, setCartItems] = useState(0);
     const [initialValue, setInitialVaule] = useState(1);
     const [stock, setStock] = useState(1);
     const [terminarCompra, setTerminarCompra] = useState(false);
 
     const onAdd = (currentQuantity) => {
-        console.log("currentQuantity: ", currentQuantity)
-        setCartItems(currentQuantity)
-        console.log("cartItems: ", cartItems);
         cartContext.addItem(item, currentQuantity);
-        //cartContext.addItem(item, cartItems);
         setTerminarCompra(true);
         setShow(true);
     }
@@ -40,11 +35,14 @@ function ItemDetail({ item }) {
                     <p className="detail-title">Descripción:</p>
                     <p className="detail-description">{item?.description}</p>
                     <p className="detail-price">Precio: ${item?.price}</p>
-                    <p className="detail-stock">Quedan {item?.stock} unidades disponibles</p>
+
                     {terminarCompra ?
-                        <NavLink to={"/cart"}><button className="ir-carrito-button">Terminar Compra</button></NavLink>
+                        <NavLink to={"/cart"}><button className="ir-carrito-button">Terminar mi compra</button></NavLink>
                         :
-                        <ItemCount initialValue={initialValue} stock={stock} onAdd={onAdd} />
+                        <>
+                            <p className="detail-stock">Quedan {item?.stock} unidades disponibles</p>
+                            <ItemCount initialValue={initialValue} stock={stock} onAdd={onAdd} buttonLabel="Agregar al carrito" />
+                        </>
                     }
                 </div>
             </div>

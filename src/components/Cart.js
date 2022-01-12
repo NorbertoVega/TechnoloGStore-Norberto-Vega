@@ -26,18 +26,12 @@ const Cart = () => {
     }
 
     const onUpdateProduct = (currentQuantity, id) => {
-        console.log("Producto actualizado.");
-        console.log("currentQuantity: ", currentQuantity);
-        console.log("id: ", id);
         cartContext.updateQuantity(id, currentQuantity);
         forceUpdate();
     }
 
     const onDeleteProduct = (id) => {
-        console.log("Producto eliminado.");
-        console.log("id: ", id);
         cartContext.removeItem(id);
-        console.log("carrito luego de eliminar: ", products);
         forceUpdate();
     }
 

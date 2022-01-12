@@ -3,33 +3,33 @@ import "../styles/ItemListContainerStyles.css";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import productsMock from "../mockData.js";
 import Header from "./Header";
 import Spinner from "./Spinner";
+import { collection, getFirestore, getDocs, query, where} from "firebase/firestore";
 
 function ItemListContainer() {
+
 
     const [productsArray, setProductsArray] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { categoryName } = useParams();
 
     useEffect(() => {
+        const db = getFirestore();
 
-        const filterProductsByCategory = () => {
-            if (categoryName === undefined)
-                return productsMock();
-            else
-                return productsMock().filter(prod => prod.category === categoryName);
-        }
+        let queryCategory;
+        if (categoryName === undefined)
+            queryCategory = query(collection(db, "ItemCollection"));
+        else
+            queryCategory = query(collection(db, "ItemCollection") , where("category", "==", categoryName));
 
-        const asynncMock = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(filterProductsByCategory());
-                setIsLoading(false);
-            }, 1000);
+        getDocs(queryCategory).then((snapshot) => {
+            if (snapshot.size === 0) {
+                console.log("No results");
+            }
+            setProductsArray(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})))
+            setIsLoading(false);
         })
-
-        asynncMock.then((res) => setProductsArray(res));
         
     }, [categoryName]);
 

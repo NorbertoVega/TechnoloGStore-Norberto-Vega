@@ -7,6 +7,8 @@ import "../styles/CartStyles.css";
 import { NavLink } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import EmptyCartIcon from "../img/empty-cart.png";
+import { getFirestore, collection, addDoc, getDoc, doc, updateDoc } from "firebase/firestore"
+
 
 const Cart = () => {
 
@@ -14,7 +16,11 @@ const Cart = () => {
     const forceUpdate = React.useCallback(() => updateState({}), []);
     const cartContext = useContext(CartContext);
     const [products, setProducts] = useState(cartContext.getCartProducts());
-    let total = cartContext.getTotal();;
+    const [orderId, setOrderId] = useState(0);
+    let total = cartContext.getTotal();
+
+    const db = getFirestore();
+    const orderCollection = collection(db, "orders");
 
     const updateCart = () => {
         setProducts(cartContext.getCartProducts())
@@ -35,6 +41,40 @@ const Cart = () => {
         forceUpdate();
     }
 
+    const updateProducts = (orderItems) => {
+
+        if (orderItems !== undefined && orderItems.lenght !== 0) {
+            orderItems.forEach(item => {
+                const data = doc(db, "ItemCollection", item.id);
+                getDoc(data).then((snapshot) => {
+                    console.log(snapshot.data());
+                    updateDoc(data, { stock: Number(item.stock - item.quantity) })
+                })
+            });
+        }
+    }
+
+    const confirmOrder = () => {
+        let order = {
+            buyer: { name: "Norberto Vega", phone: 55555555, email: "test@test.com" },
+            items: cartContext.getCartProducts(),
+            date: Date.now(),
+            total: cartContext.getTotal()
+        }
+        addDoc(orderCollection, order).then((res) => {
+            console.log(res.id);
+            setOrderId(res.id);
+
+            const savedOrder = doc(db, "orders", res.id);
+            getDoc(savedOrder).then((snapshot) => {
+                console.log("Order: ", snapshot.data());
+            })
+
+            updateProducts(cartContext.getCartProducts());
+
+        });
+    }
+
     useEffect(() => {
 
     }, [products])
@@ -45,7 +85,7 @@ const Cart = () => {
             {products?.length === 0 ?
                 <div className="cart-item-container">
                     <h1>El Carrito está vacío</h1>
-                    <img src={EmptyCartIcon} className="empty-cart" alt="carrito vacío"/>
+                    <img src={EmptyCartIcon} className="empty-cart" alt="carrito vacío" />
                     <NavLink to={"/"}><button className="ir-a-productos-button">Volver a Productos</button></NavLink>
                 </div>
                 :
@@ -73,8 +113,17 @@ const Cart = () => {
                             <button onClick={emptyCart} className="empty-cart-button">Vaciar Carrito</button>
                             <p className="total">Total: ${total}</p>
                         </div>
+                        <div className="cart-item confirm-container">
+                            <button onClick={confirmOrder} className="empty-cart-button">Confirmar Compra</button>
+                        </div>
+                        {orderId !== 0 &&
+                            <div className="cart-item order-result">
+                                <p>La orden se procesó con éxito.</p>
+                                <p> Id de la orden: {orderId}</p>
+                            </div>}
                     </Row>
                 </Container>}
+
         </>
     )
 }

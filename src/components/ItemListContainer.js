@@ -19,14 +19,11 @@ function ItemListContainer() {
 
         let queryCategory;
         if (categoryName === undefined)
-            queryCategory = query(collection(db, "ItemCollection"));
+            queryCategory = query(collection(db, "itemCollection"));
         else
-            queryCategory = query(collection(db, "ItemCollection") , where("category", "==", categoryName));
+            queryCategory = query(collection(db, "itemCollection") , where("category", "==", categoryName));
 
         getDocs(queryCategory).then((snapshot) => {
-            if (snapshot.size === 0) {
-                console.log("No results");
-            }
             setProductsArray(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})))
             setIsLoading(false);
         })

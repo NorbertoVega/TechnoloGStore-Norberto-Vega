@@ -20,7 +20,6 @@ function CartWidget() {
         <NavLink to={"/cart"}>
             {   
                 quantity !== 0 && 
-                
                 <div className="circle">
                     <Image src={cart} className="size" />
                     <p>{quantity}</p>

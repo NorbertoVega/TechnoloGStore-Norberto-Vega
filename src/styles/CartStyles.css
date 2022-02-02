@@ -78,8 +78,9 @@
 }
 
 .confirm-container {
+    margin-top: 32px;
     border-bottom: white;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .order-result {
@@ -87,4 +88,28 @@
     flex-direction: column;
     font-size: 20px;
     margin-top: 15px;
+}
+
+.form-title {
+    font-size: 25px;
+}
+
+.form-customer {
+    width: 60%;
+}
+
+.form-group-customer {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.form-error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.order-sucess {
+    font-size: 30px;
+    margin-top: 30px;
 }
